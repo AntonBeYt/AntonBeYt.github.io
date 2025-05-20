@@ -1,0 +1,422 @@
+:root {
+  --dist-x: 65px;
+  --dist-y: 65px;
+  --ball-speed: 1s;
+  --ball-shrink: 0.5;
+  --ball-curve: ease-in-out;
+}
+
+.worms {
+  display: none;
+}
+:root[data-style="gooey"] .worms {
+  display: block;
+}
+
+.worm {
+  width: 80vw;
+  --wave: 85px;
+  --thickness: 30px;
+  height: calc(2 * var(--wave));
+  aspect-ratio: 2.5;
+  display: grid;
+  padding: 20px;
+  filter: blur(13px) contrast(80) hue-rotate(20deg);
+  background: var(--worm-bg);
+  mix-blend-mode: var(--worm-blend);
+  color: var(--worm-color);
+}
+
+.worm::before {
+  content: "";
+  --_g: calc(-0.6 * var(--wave)), #0000 calc(99% - var(--thickness)),
+    var(--worm-color) calc(101% - var(--thickness)) 99%, #0000 101%;
+  --_r: calc(1.166 * var(--wave) + var(--thickness) / 2) at left 50%;
+  background: radial-gradient(var(--_r) bottom var(--_g))
+      calc(50% - var(--wave)) calc(50% - var(--wave)) / calc(4 * var(--wave))
+      calc(2 * var(--wave)),
+    radial-gradient(var(--_r) top var(--_g)) calc(50% + var(--wave))
+      calc(50% + var(--wave)) / calc(4 * var(--wave)) calc(2 * var(--wave));
+}
+.wiggle-right::before {
+  animation: wiggle 3s infinite linear;
+}
+.wiggle-left::before {
+  animation: wiggle 3s infinite linear reverse;
+}
+@keyframes wiggle {
+  to {
+    background-position: calc(50% - 5 * var(--wave)) calc(50% - var(--wave)),
+      calc(50% - 3 * var(--wave)) calc(50% + var(--wave));
+  }
+}
+
+.saw {
+  display: none;
+}
+
+:root[data-style="gooey"] .saw {
+  display: block;
+  font-weight: bold;
+  font-size: 4rem;
+  margin: 0;
+  border: none;
+  width: 100vw;
+  margin-top: 5rem;
+  text-align: center;
+  height: 80vh;
+
+  --s: 0.5em;
+  --_i: 0px;
+
+  --initial-color: cadetblue;
+  --scroll-color: tomato;
+  background-color: var(--initial-color);
+  transition: background-color 0.6s ease;
+
+  --_s: calc(var(--s) * 4) 51% repeat-x;
+  --_r: calc(1.345 * var(--s)) at left 50%;
+  --_g1: #000 99%, #0000 101%;
+  --_g2: #0000 99%, #000 101%;
+  --mask: radial-gradient(var(--_r) top calc(var(--s) * 1.9), var(--_g1))
+      calc(50% - 2 * var(--s) - var(--_i, 0px)) 0 / var(--_s),
+    radial-gradient(var(--_r) top calc(var(--s) * -0.9), var(--_g2))
+      calc(50% - var(--_i, 0px)) var(--s) / var(--_s),
+    radial-gradient(var(--_r) bottom calc(var(--s) * 1.9), var(--_g1))
+      calc(50% - 2 * var(--s) + var(--_i, 0px)) 100% / var(--_s),
+    radial-gradient(var(--_r) bottom calc(var(--s) * -0.9), var(--_g2))
+      calc(50% + var(--_i, 0px)) calc(100% - var(--s)) / var(--_s);
+  -webkit-mask: var(--mask);
+  mask: var(--mask);
+}
+
+/* .blobs {
+  filter: url("#goo");
+}
+
+@keyframes blob-left-top-anim {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  33% {
+    transform: scale(0.9) translate(calc(-1 * var(--dist-x)), 0);
+  }
+  62% {
+    transform: scale(0.7)
+      translate(calc(-1 * var(--dist-x)), calc(-1 * var(--dist-y)));
+  }
+  94% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+
+@keyframes blob-right-top-anim {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  33% {
+    transform: scale(0.9) translate(var(--dist-x), 0);
+  }
+  64% {
+    transform: scale(0.7) translate(var(--dist-x), calc(-1 * var(--dist-y)));
+  }
+  96% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+@keyframes blob-left-bottom-anim {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  33% {
+    transform: scale(0.9) translate(calc(-1 * var(--dist-x)), 0);
+  }
+  66% {
+    transform: scale(0.7) translate(calc(-1 * var(--dist-x)), var(--dist-y));
+  }
+  98% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+@keyframes blob-right-bottom-anim {
+  0% {
+    transform: scale(1.1) translate(0, 0);
+  }
+  33% {
+    transform: scale(0.9) translate(var(--dist-x), 0);
+  }
+  68% {
+    transform: scale(0.7) translate(var(--dist-x), var(--dist-y));
+  }
+  100% {
+    transform: scale(1.1) translate(0, 0);
+  }
+}
+
+.blob {
+  position: absolute;
+  background: #e97b7a;
+  left: 50%;
+  top: 50%;
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  border-radius: 100%;
+  margin-top: -50px;
+  margin-left: -50px;
+  animation: blob-left-top-anim cubic-bezier(0.77, 0, 0.175, 1) 4s infinite;
+
+  &:nth-child(2) {
+    animation-name: blob-right-top-anim;
+  }
+  &:nth-child(3) {
+    animation-name: blob-left-bottom-anim;
+  }
+  &:nth-child(4) {
+    animation-name: blob-right-bottom-anim;
+  }
+} */
+.ball-pit {
+  display: none;
+}
+
+:root[data-style="gooey"] .ball-pit {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  mix-blend-mode: var(--worm-blend);
+  width: 100vw;
+  aspect-ratio: 1 / 1;
+}
+
+.balls {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  filter: url("#goo");
+}
+
+.ball {
+  position: absolute;
+  display: block;
+  width: 100px;
+  aspect-ratio: 1 / 1;
+  background-color: var(--text-color);
+  border-radius: 100%;
+  top: 50%;
+  left: 50%;
+  background-color: var(--worm-color);
+  inset: calc(50% - 50px) auto auto calc(50% - 50px);
+  animation-direction: alternate;
+
+  &:nth-child(2) {
+    animation: west var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0.1s;
+  }
+  &:nth-child(3) {
+    animation: northwest var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+  }
+  &:nth-child(4) {
+    animation: north var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0.1s;
+  }
+  &:nth-child(5) {
+    animation: northeast var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+  }
+  &:nth-child(6) {
+    animation: east var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0.1s;
+  }
+  &:nth-child(7) {
+    animation: southeast var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+  }
+  &:nth-child(8) {
+    animation: south var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0.1s;
+  }
+  &:nth-child(9) {
+    animation: southwest var(--ball-speed) var(--ball-curve) infinite;
+    animation-direction: alternate;
+    animation-delay: 0s;
+  }
+}
+
+.ball-center {
+  animation: shrink var(--ball-speed) var(--ball-curve) infinite;
+  animation-direction: alternate;
+  animation-delay: 0s;
+  z-index: 2;
+  cursor: pointer;
+}
+
+@keyframes shrink {
+  0% {
+    transform: scale(1.4);
+  }
+  100% {
+    transform: scale(0.4);
+  }
+}
+
+@keyframes west {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: translateX(calc(-150%)) scale(var(--ball-shrink));
+  }
+}
+@keyframes northwest {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(-110%)) translateX(calc(-110%))
+      scale(var(--ball-shrink));
+  }
+}
+@keyframes north {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(-150%)) scale(var(--ball-shrink));
+  }
+}
+@keyframes northeast {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(-110%)) translateX(calc(110%))
+      scale(var(--ball-shrink));
+  }
+}
+@keyframes east {
+  0% {
+    transform: translateX(0) scale(1);
+  }
+  100% {
+    transform: translateX(calc(150%)) scale(var(--ball-shrink));
+  }
+}
+@keyframes southeast {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(110%)) translateX(calc(110%))
+      scale(var(--ball-shrink));
+  }
+}
+@keyframes south {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(150%)) scale(var(--ball-shrink));
+  }
+}
+@keyframes southwest {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  100% {
+    transform: translateY(calc(110%)) translateX(calc(-110%))
+      scale(var(--ball-shrink));
+  }
+}
+
+:root[data-style="gooey"] .drip-wrapper {
+  display: block;
+}
+
+.drip-wrapper {
+  display: none;
+  position: absolute;
+  top: -44px;
+  right: 0;
+  width: 80px;
+  height: 100vh;
+  overflow: hidden;
+  filter: url("#goo");
+}
+
+.dripper {
+  position: absolute;
+  background: var(--yellow);
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid var(--yellow);
+}
+
+.menu-open:checked + .dripper {
+  width: 80px;
+  height: 80px;
+}
+
+.drop {
+  position: absolute;
+  background: var(--yellow);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 5px solid var(--yellow);
+  width: 40px;
+  height: 40px;
+  animation: drips 7s infinite;
+}
+
+@-webkit-keyframes drips {
+  0% {
+    top: 50px;
+    width: 8px;
+    height: 8px;
+  }
+  10% {
+    top: 70px;
+    width: 8px;
+    height: 8px;
+  }
+  85% {
+    top: 75px;
+    width: 30px;
+    height: 30px;
+  }
+  99% {
+    top: 100%;
+  }
+  100% {
+    top: 101%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.drip-landing {
+  position: absolute;
+  background: var(--yellow);
+  left: 50%;
+  bottom: var(--footer-height);
+  transform: translateX(-50%);
+  width: 100%;
+  height: var(--footer-height);
+}

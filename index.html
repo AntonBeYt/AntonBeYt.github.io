@@ -1,20 +1,151 @@
 <!DOCTYPE html>
-<html data-theme="light">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Hello there, welcome</title>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="styles/menu-gooey.css">
+        <link rel="stylesheet" href="styles/menu-brutal.css">
+        <link rel="stylesheet" href="styles/balls-and-goo.css">
+        <link rel="stylesheet" href="styles/brutal.css">
+        <link rel="stylesheet" href="styles/theme-toggle-styles.css">
         <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=azeret-mono:500" rel="stylesheet" />
+        <link href="https://fonts.bunny.net/css?family=azeret-mono:400,500,600,700|dynapuff:400,500,600,700|oswald:400,500,600,700" rel="stylesheet" />
   <body>
-    <button id="theme-toggle" class="theme-toggle">🌗</button>
-    <main>
-        <h1>Hello World</h1>
-        <p></p>
-        <div class="circle"></div>
+      <main>
+        <header>
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">   
+                <svg class="sun-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="center" cx="30" cy="30" r="10" />
+                    <path class="raySW" d="M17.0711 43L10 50.071" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayS" d="M30 48L30 58" stroke-width="3" stroke-linecap="round"/>
+                    <path class="raySE" d="M43.0002 43L50.0713 50.071" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayE" d="M48 30H58" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayNE" d="M43.0002 17.0711L50.0713 10" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayN" d="M30 12V2" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayNW" d="M17.0711 17.0711L10 10" stroke-width="3" stroke-linecap="round"/>
+                    <path class="rayW" d="M12 30H2" stroke-width="3" stroke-linecap="round"/>
+                </svg> 
+                <svg class="moon-icon" width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.627 13C24.8065 15.7863 23.7422 19.1519 23.7422 22.7764C23.7422 32.3844 31.2197 40.1736 40.4434 40.1738C42.3937 40.1738 44.2658 39.8237 46.0059 39.1836C42.9058 43.9669 37.5219 47.1327 31.3975 47.1328C21.7893 47.1328 14 39.3435 14 29.7354C14 21.7813 19.3379 15.0737 26.627 13Z"/>
+                </svg>
+            </button>
+                <menu>
+                    <div class="menu">
+                        <input type="checkbox" class="menu-open" name="menu-open" id="menu-open"/>
+                        <label class="menu-open-button" for="menu-open">
+                            <span class="hamburger hamburger-1"></span>
+                            <span class="hamburger hamburger-2"></span>
+                            <span class="hamburger hamburger-3"></span>
+                        </label>
+                        <div class="menu-item"> 
+                            <label for="gooey">Gooey</label>
+                            <input class="radio-btn" type="radio" name="style" id="gooey" value="gooey">
+                        </div>
+                        <div class="menu-item">
+                            <label for="brutal">Brutal</label>
+                            <input class="radio-btn" type="radio" name="style" id="brutal" value="brutal" checked>
+                        </div>
+                        <div class="menu-item">
+                            soon...
+                            <!-- <label for="paper">Paper</label>
+                            <input class="radio-btn" type="radio" name="style" id="paper" value="paper"> -->
+                        </div>
+                        <div class="spotlight-toggle-container">
+                            <label for="spotlight-toggle" class="spotlight-toggle-label"></label>
+                            <input type="checkbox" role="switch" id="spotlight-toggle" class="spotlight-toggle" aria-label="Toggle spotlight effect">
+                        </div>
+                        <div class="drip-wrapper">
+                            <div class="dripper"></div>
+                            <div class="drop"></div>
+                            <div class="drip-landing"></div>
+                        </div>
+                    </div>
+                </menu>
+        </header>
         <div class="overlay"></div>
+        <div class="circle"></div>
+
+        <h1 class="bubble-grow">Hello World</h1>
+        <p class="bread">Do you like 
+            <span class="rainbow-animated bubble-grow">
+                bells & whistles?
+            </span>
+        </p>
+        <section class="worms">
+            <div class="worm wiggle-right"></div>
+            <div class="worm wiggle-left"></div>
+            <div class="worm wiggle-right"></div>
+            <div class="worm wiggle-left"></div>
+        </section>
+
+        <section class="cube-section">
+                <div id="y-control">
+                    <div class="cube-wrap">
+                        <div class="cube">
+                            <div class="side top"></div>
+                            <div class="side bottom"></div>
+                            <div class="side front"></div>
+                            <div class="side back"></div>
+                            <div class="side left"></div>
+                            <div class="side right"></div>
+                            <div class="inner-cube">
+                                <div class="inner-side inner-top"></div>
+                                <div class="inner-side inner-bottom"></div>
+                                <div class="inner-side inner-front"></div>
+                                <div class="inner-side inner-back"></div>
+                                <div class="inner-side inner-left"></div>
+                                <div class="inner-side inner-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </section>
+            
+        <div class="saw"></div>
+
+        <!-- <div class="blobs">
+            <div class="blob">4</div>
+            <div class="blob">3</div>
+            <div class="blob">2</div>
+            <div class="blob">1</div>
+        </div>   -->
+
+        <div class="ball-pit">
+              <div class="balls">
+                  <div class="ball ball-center bubble-grow" id="centerBall"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+                  <div class="ball"></div>
+              </div>
+          </div>
+
+          <footer></footer>
+          <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+              <filter id="shadowed-goo">
+                  <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
+                  <feColorMatrix in="shadow" mode="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2" result="shadow" />
+                  <feOffset in="shadow" dx="1" dy="1" result="shadow" />
+                  <feComposite in2="shadow" in="goo" result="goo" />
+                  <feComposite in2="goo" in="SourceGraphic" result="mix" />
+              </filter>
+              <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" result="blur" stdDeviation="10" />
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo" />
+                  <feComposite in2="goo" in="SourceGraphic" result="mix" />
+              </filter>
+            </defs>
+        </svg>
     </main>
     <script src="bells-whistles.js"></script>
   </body>

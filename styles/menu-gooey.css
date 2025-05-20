@@ -1,0 +1,176 @@
+:root[data-style="gooey"] .menu-item,
+:root[data-style="gooey"] .menu-open-button {
+  background: var(--menu-bg);
+  border-radius: 100%;
+  width: 80px;
+  height: 80px;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  color: white;
+  text-align: center;
+  transform: translate3d(0, 0, 0);
+  transition: transform ease-out 200ms;
+}
+
+:root[data-style="gooey"] .menu-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  text-decoration: none;
+  color: var(--purple);
+}
+
+.radio-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 0.25rem solid var(--menu-color);
+  border-radius: 0.5rem;
+  width: 3rem;
+  cursor: pointer;
+  height: 1.5rem;
+}
+
+.radio-btn::before {
+  content: "";
+  width: 1.3rem;
+  height: 1.1rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  transform: translateX(-0.75rem);
+  background-color: var(--menu-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.radio-btn:checked::before {
+  clip-path: polygon(100% 0, 25% 0, 0 50%, 25% 100%, 100% 100%);
+  transform: translateX(0.75rem);
+}
+
+.menu-open {
+  appearance: none;
+}
+
+.menu-open:focus-visible + .menu-open-button {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.hamburger {
+  width: 25px;
+  height: 3px;
+  background: var(--menu-color);
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -12.5px;
+  margin-top: -1.5px;
+  transition: transform 200ms;
+}
+
+.hamburger-1 {
+  transform: translate3d(0, -8px, 0);
+}
+
+.hamburger-2 {
+  transform: translate3d(0, 0, 0);
+}
+
+.hamburger-3 {
+  transform: translate3d(0, 8px, 0);
+}
+
+.menu-open:checked + .menu-open-button .hamburger-1 {
+  transform: translate3d(0, 0, 0) rotate(45deg);
+}
+
+.menu-open:checked + .menu-open-button .hamburger-2 {
+  transform: translate3d(0, 0, 0) scale(0.1, 1);
+}
+
+.menu-open:checked + .menu-open-button .hamburger-3 {
+  transform: translate3d(0, 0, 0) rotate(-45deg);
+}
+
+:root[data-style="gooey"] .menu {
+  position: relative;
+  box-sizing: border-box;
+  text-align: left;
+  display: flex;
+  justify-content: end;
+  z-index: 5;
+}
+
+.menu-item:hover {
+}
+
+/* .menu-item:nth-child(3) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(4) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(5) {
+  transition-duration: 180ms;
+}
+.menu-item:nth-child(6) {
+  transition-duration: 180ms;
+} */
+
+:root[data-style="gooey"] .menu-open-button {
+  z-index: 2;
+  transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition-duration: 400ms;
+  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  cursor: pointer;
+}
+
+:root[data-style="gooey"] .menu-open-button:hover {
+  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+}
+
+:root[data-style="gooey"] .menu-open:checked + .menu-open-button {
+  transition-timing-function: linear;
+  transition-duration: 200ms;
+  transform: scale(0.8, 0.8) translate3d(0, 0, 0) rotate(90deg);
+}
+
+:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(3) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 170ms;
+  transform: translate3d(-80px, -10px, 0);
+}
+
+:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(4) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 250ms;
+  transform: translate3d(-160px, 15px, 0);
+}
+
+:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(5) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 330ms;
+  transform: translate3d(-240px, 0, 0);
+}
+
+:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(6) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 410ms;
+  transform: translate3d(-320px, 30px, 0);
+}
+
+/* .menu-open:checked ~ .menu-item:nth-child(7) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 480ms;
+  transform: translate3d(-400px, 0, 0);
+}
+.menu-open:checked ~ .menu-item:nth-child(8) {
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 560ms;
+  transform: translate3d(-480px, 0, 0);
+} */
