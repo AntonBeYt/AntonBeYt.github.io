@@ -1,0 +1,223 @@
+:root {
+  --purple: #6247aa;
+  --yellow: #ffc107;
+  --bg: #009688;
+  --open-distance: 105px;
+  --menu-items: 6;
+}
+
+:root[data-style="gooey"] {
+  --menu-filter: url("#goo");
+  --menu-bg: #ffc107;
+  --menu-color: #6247aa;
+}
+
+:root[data-style="brutal"] {
+  --menu-filter: none;
+  /* --menu-bg: #6e3f52; */
+  --menu-bg: #cbd2d0;
+  /* --menu-color: #dbdce8; */
+  --menu-color: black;
+}
+
+:root[data-style="paper"] {
+  --menu-filter: none;
+}
+
+.theme-toggle {
+  padding: 10px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  z-index: 2;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.theme-toggle svg {
+  width: 80px;
+  height: 80px;
+}
+
+.theme-toggle .sun-icon path,
+.theme-toggle .sun-icon circle {
+  stroke: #e5c068;
+  fill: none;
+}
+
+.theme-toggle .sun-icon circle {
+  fill: #e5c068;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.5);
+}
+.theme-toggle:focus-visible {
+  outline: 2px dotted var(--text-color);
+  outline-offset: 2px;
+}
+
+.theme-toggle svg {
+  width: 80px;
+  height: 80px;
+}
+
+.theme-toggle .sun-icon {
+  display: none;
+}
+
+.theme-toggle .moon-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .sun-icon {
+  display: block;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon {
+  display: none;
+}
+
+@keyframes drawLine {
+  from {
+    stroke-dashoffset: 20;
+    opacity: 0;
+  }
+  to {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}
+
+.theme-toggle .sun-icon path {
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+}
+
+.theme-toggle .sun-icon .raySW {
+  animation: drawLine 0.4s ease forwards 0.8s;
+}
+
+.theme-toggle .sun-icon .rayS {
+  animation: drawLine 0.4s ease forwards 0.7s;
+}
+
+.theme-toggle .sun-icon .raySE {
+  animation: drawLine 0.4s ease forwards 0.6s;
+}
+
+.theme-toggle .sun-icon .rayE {
+  animation: drawLine 0.4s ease forwards 0.5s;
+}
+
+.theme-toggle .sun-icon .rayNE {
+  animation: drawLine 0.4s ease forwards 0.4s;
+}
+
+.theme-toggle .sun-icon .rayN {
+  animation: drawLine 0.4s ease forwards 0.3s;
+}
+
+.theme-toggle .sun-icon .rayNW {
+  animation: drawLine 0.4s ease forwards 0.2s;
+}
+
+.theme-toggle .sun-icon .rayW {
+  animation: drawLine 0.4s ease forwards 0.1s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.theme-toggle .sun-icon .center {
+  opacity: 0;
+  animation: fadeIn 0.5s ease forwards 0.25s;
+}
+
+.theme-toggle .sun-icon[display="none"] path,
+.theme-toggle .sun-icon[display="none"] circle {
+  animation: none;
+}
+
+@keyframes waxingMoon {
+  from {
+    transform: rotate(-90deg);
+    opacity: 0;
+  }
+  to {
+    transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.theme-toggle .moon-icon path {
+  fill: #c3c5b0;
+  transform-origin: center right;
+  opacity: 0;
+  animation: waxingMoon 0.6s ease-out forwards;
+}
+
+[data-theme="dark"] .theme-toggle .moon-icon path {
+  animation: none;
+}
+
+.spotlight-toggle-container {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.spotlight-toggle {
+  appearance: none;
+  -webkit-appearance: none;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  border: 0.25rem solid var(--menu-color);
+  border-radius: 0.5rem;
+  width: 3rem;
+  cursor: pointer;
+  height: 1.5rem;
+}
+
+.spotlight-toggle:focus-visible {
+  outline: 2px dotted white;
+  outline-offset: 2px;
+}
+
+.spotlight-toggle:checked {
+  /* background-color: cadetblue; */
+}
+
+.spotlight-toggle::before {
+  content: "";
+  width: 1.3rem;
+  height: 1.1rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+  transform: translateX(-0.75rem);
+  background-color: var(--menu-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.spotlight-toggle:checked::before {
+  clip-path: polygon(100% 0, 25% 0, 0 50%, 25% 100%, 100% 100%);
+  transform: translateX(0.75rem);
+}
+
+.menu,
+.menu-item,
+.menu-open-button {
+  filter: var(--menu-filter);
+}

@@ -1,7 +1,6 @@
-:root[data-style="gooey"] .menu-item,
-:root[data-style="gooey"] .menu-open-button {
+:root[data-style="brutal"] .menu-item,
+:root[data-style="brutal"] .menu-open-button {
   background: var(--menu-bg);
-  border-radius: 100%;
   width: 80px;
   height: 80px;
   position: absolute;
@@ -13,43 +12,41 @@
   transition: transform ease-out 200ms;
 }
 
-:root[data-style="gooey"] .menu-item {
+:root[data-style="brutal"] .menu-item {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-weight: bold;
   text-decoration: none;
-  color: var(--purple);
+  color: var(--menu-color);
 }
 
-.radio-btn {
+:root[data-style="brutal"] .radio-btn {
   appearance: none;
   -webkit-appearance: none;
   display: flex;
   align-content: center;
   justify-content: center;
   border: 0.25rem solid var(--menu-color);
-  border-radius: 0.5rem;
+  border-radius: 0rem;
   width: 3rem;
   cursor: pointer;
   height: 1.5rem;
 }
 
-:root[data-style="gooey"] .radio-btn::before {
+:root[data-style="brutal"] .radio-btn::before {
   content: "";
-  width: 1rem;
-  height: 1rem;
-  /* clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%); */
-  border-radius: 82% 18% 89% 11% / 15% 84% 16% 85%;
+  width: 1.3rem;
+  height: 1.1rem;
+  clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
   transform: translateX(-0.75rem);
   background-color: var(--menu-color);
   transition: all 0.3s ease-in-out;
 }
 
-:root[data-style="gooey"] .radio-btn:checked::before {
-  /* clip-path: polygon(100% 0, 25% 0, 0 50%, 25% 100%, 100% 100%); */
-  border-radius: 62% 38% 51% 49% / 34% 46% 54% 66%;
+:root[data-style="brutal"] .radio-btn:checked::before {
+  clip-path: polygon(100% 0, 25% 0, 0 50%, 25% 100%, 100% 100%);
   transform: translateX(0.75rem);
 }
 
@@ -99,7 +96,7 @@
   transform: translate3d(0, 0, 0) rotate(-45deg);
 }
 
-:root[data-style="gooey"] .menu {
+.menu {
   position: relative;
   box-sizing: border-box;
   text-align: left;
@@ -124,46 +121,46 @@
   transition-duration: 180ms;
 } */
 
-:root[data-style="gooey"] .menu-open-button {
+:root[data-style="brutal"] .menu-open-button {
   z-index: 2;
   transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-duration: 400ms;
-  transform: scale(1.1, 1.1) translate3d(0, 0, 0);
+  transform: scale(1, 1) translate3d(0, 0, 0);
   cursor: pointer;
 }
 
-:root[data-style="gooey"] .menu-open-button:hover {
-  transform: scale(1.2, 1.2) translate3d(0, 0, 0);
+:root[data-style="brutal"] .menu-open-button:hover {
+  transform: scale(1, 1) translate3d(0, 0, 0);
 }
 
-:root[data-style="gooey"] .menu-open:checked + .menu-open-button {
+:root[data-style="brutal"] .menu-open:checked + .menu-open-button {
   transition-timing-function: linear;
   transition-duration: 200ms;
-  transform: scale(0.8, 0.8) translate3d(0, 0, 0) rotate(90deg);
+  transform: scale(1, 1) translate3d(0, 0, 0) rotate(0deg);
 }
 
-:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(3) {
+:root[data-style="brutal"] .menu-open:checked ~ .menu-item:nth-child(3) {
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-duration: 170ms;
-  transform: translate3d(-80px, -10px, 0);
+  transform: translate3d(-80px, 0, 0);
 }
 
-:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(4) {
+:root[data-style="brutal"] .menu-open:checked ~ .menu-item:nth-child(4) {
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-duration: 250ms;
-  transform: translate3d(-160px, 15px, 0);
+  transform: translate3d(-160px, 0, 0);
 }
 
-:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(5) {
+:root[data-style="brutal"] .menu-open:checked ~ .menu-item:nth-child(5) {
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-duration: 330ms;
   transform: translate3d(-240px, 0, 0);
 }
 
-:root[data-style="gooey"] .menu-open:checked ~ .menu-item:nth-child(6) {
+:root[data-style="brutal"] .menu-open:checked ~ .menu-item:nth-child(6) {
   transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
   transition-duration: 410ms;
-  transform: translate3d(-320px, 30px, 0);
+  transform: translate3d(-320px, 0, 0);
 }
 
 /* .menu-open:checked ~ .menu-item:nth-child(7) {

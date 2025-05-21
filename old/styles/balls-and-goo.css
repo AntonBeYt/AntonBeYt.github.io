@@ -15,18 +15,16 @@
 
 .worm {
   width: 80vw;
-  --wave: clamp(40px, 8vw, 85px);
-  --thickness: clamp(15px, 4vw, 30px);
+  --wave: 85px;
+  --thickness: 30px;
   height: calc(2 * var(--wave));
   aspect-ratio: 2.5;
   display: grid;
-  padding: clamp(10px, 2vw, 20px);
-  filter: blur(8px) contrast(70) hue-rotate(20deg);
+  padding: 20px;
+  filter: blur(13px) contrast(80) hue-rotate(20deg);
   background: var(--worm-bg);
   mix-blend-mode: var(--worm-blend);
   color: var(--worm-color);
-  will-change: transform;
-  -webkit-backface-visibility: hidden;
 }
 
 .worm::before {
@@ -41,23 +39,15 @@
       calc(50% + var(--wave)) / calc(4 * var(--wave)) calc(2 * var(--wave));
 }
 .wiggle-right::before {
-  animation: wiggle 4s infinite linear;
+  animation: wiggle 3s infinite linear;
 }
 .wiggle-left::before {
-  animation: wiggle 4s infinite linear reverse;
+  animation: wiggle 3s infinite linear reverse;
 }
 @keyframes wiggle {
   to {
     background-position: calc(50% - 5 * var(--wave)) calc(50% - var(--wave)),
       calc(50% - 3 * var(--wave)) calc(50% + var(--wave));
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .wiggle-right::before,
-  .wiggle-left::before {
-    animation-duration: 6s;
-    animation-timing-function: linear;
   }
 }
 
