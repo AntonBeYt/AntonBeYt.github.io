@@ -61,46 +61,7 @@
   }
 }
 
-.saw {
-  display: none;
-}
-
-:root[data-style="gooey"] .saw {
-  display: block;
-  font-weight: bold;
-  font-size: 4rem;
-  margin: 0;
-  border: none;
-  width: 100vw;
-  margin-top: 5rem;
-  text-align: center;
-  height: 80vh;
-
-  --s: 0.5em;
-  --_i: 0px;
-
-  --initial-color: cadetblue;
-  --scroll-color: tomato;
-  background-color: var(--initial-color);
-  transition: background-color 0.6s ease;
-
-  --_s: calc(var(--s) * 4) 51% repeat-x;
-  --_r: calc(1.345 * var(--s)) at left 50%;
-  --_g1: #000 99%, #0000 101%;
-  --_g2: #0000 99%, #000 101%;
-  --mask: radial-gradient(var(--_r) top calc(var(--s) * 1.9), var(--_g1))
-      calc(50% - 2 * var(--s) - var(--_i, 0px)) 0 / var(--_s),
-    radial-gradient(var(--_r) top calc(var(--s) * -0.9), var(--_g2))
-      calc(50% - var(--_i, 0px)) var(--s) / var(--_s),
-    radial-gradient(var(--_r) bottom calc(var(--s) * 1.9), var(--_g1))
-      calc(50% - 2 * var(--s) + var(--_i, 0px)) 100% / var(--_s),
-    radial-gradient(var(--_r) bottom calc(var(--s) * -0.9), var(--_g2))
-      calc(50% + var(--_i, 0px)) calc(100% - var(--s)) / var(--_s);
-  -webkit-mask: var(--mask);
-  mask: var(--mask);
-}
-
-/* .blobs {
+.blobs {
   filter: url("#goo");
 }
 
@@ -188,8 +149,8 @@
   &:nth-child(4) {
     animation-name: blob-right-bottom-anim;
   }
-} */
-.ball-pit {
+}
+/* .ball-pit {
   display: none;
 }
 
@@ -349,7 +310,7 @@
     transform: translateY(calc(110%)) translateX(calc(-110%))
       scale(var(--ball-shrink));
   }
-}
+} */
 
 :root[data-style="gooey"] .drip-wrapper {
   display: block;
@@ -368,14 +329,14 @@
 
 .dripper {
   position: absolute;
-  background: var(--yellow);
+  background: var(--menu-bg);
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 5px solid var(--yellow);
+  border: 5px solid var(--menu-bg);
 }
 
 .menu-open:checked + .dripper {
@@ -385,12 +346,12 @@
 
 .drop {
   position: absolute;
-  background: var(--yellow);
+  background: var(--menu-bg);
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  border: 5px solid var(--yellow);
+  border: 5px solid var(--menu-bg);
   width: 40px;
   height: 40px;
   animation: drips 7s infinite;
@@ -424,63 +385,10 @@
 
 .drip-landing {
   position: absolute;
-  background: var(--yellow);
+  background: var(--menu-bg);
   left: 50%;
   bottom: var(--footer-height);
   transform: translateX(-50%);
   width: 100%;
   height: var(--footer-height);
-}
-
-:root[data-style="gooey"] .drawers {
-  width: clamp(300px, 60vw, 1000px);
-}
-
-:root[data-style="gooey"] details {
-  background-color: var(--text-color);
-  color: var(--background-color);
-  /* border-radius: 77% 23% 88% 12% / 6% 75% 25% 94%; */
-  border-radius: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  margin: 0.5rem;
-}
-
-/* :root[data-style="gooey"] details:last-of-type {
-  border-radius: 54% 46% 58% 42% / 11% 53% 47% 89%;
-} */
-
-:root[data-style="gooey"] details[open] {
-  border-radius: 92% 8% 89% 11% / 7% 93% 7% 93%;
-  padding: 1rem;
-}
-
-:root[data-style="gooey"] summary {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 1.5rem;
-  margin-top: 0.5rem;
-  padding: 1rem;
-}
-
-:root[data-style="gooey"] summary::before {
-  z-index: 0;
-  content: "";
-  display: inline-block;
-  width: 2rem;
-  height: 2rem;
-  margin-right: 2.5rem;
-  background-color: var(--menu-color);
-  border-radius: 82% 18% 89% 11% / 15% 84% 16% 85%;
-  transition: all 800ms ease-in-out;
-  filter: blur(0.5px);
-  cursor: pointer;
-}
-
-:root[data-style="gooey"] details[open] summary::before {
-  border-radius: 62% 38% 51% 49% / 34% 46% 54% 66%;
-  transform: rotate(-360deg);
 }
