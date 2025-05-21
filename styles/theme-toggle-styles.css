@@ -216,8 +216,8 @@
   transform: translateX(0.75rem);
 }
 
-.menu,
+/* .menu,
 .menu-item,
 .menu-open-button {
   filter: var(--menu-filter);
-}
+} */

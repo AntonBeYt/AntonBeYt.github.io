@@ -13,6 +13,11 @@
   transition: transform ease-out 200ms;
 }
 :root[data-style="gooey"] menu {
+  width: 80vw;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
   filter: url("#goo");
   -webkit-filter: url("#goo");
 }
@@ -110,6 +115,9 @@
   display: flex;
   justify-content: end;
   z-index: 5;
+  filter: url("#goo");
+  -webkit-filter: url("#goo");
+  isolation: isolate;
 }
 
 .menu-item:hover {

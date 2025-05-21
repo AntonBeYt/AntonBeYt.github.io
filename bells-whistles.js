@@ -157,69 +157,69 @@ if (hasPointer) {
   document.querySelector(".overlay").style.display = "none";
 }
 
-function handleSawScroll() {
-  const saw = document.querySelector(".saw");
+// function handleSawScroll() {
+//   const saw = document.querySelector(".saw");
 
-  const rect = saw.getBoundingClientRect();
-  const sawHeight = rect.height;
-  const sawMiddle = rect.top + sawHeight / 2;
-  const viewportMiddle = window.innerHeight / 2;
+//   const rect = saw.getBoundingClientRect();
+//   const sawHeight = rect.height;
+//   const sawMiddle = rect.top + sawHeight / 2;
+//   const viewportMiddle = window.innerHeight / 2;
 
-  const scrollProgress = (viewportMiddle - rect.top) / sawHeight;
+//   const scrollProgress = (viewportMiddle - rect.top) / sawHeight;
 
-  if (scrollProgress >= 0.6) {
-    saw.style.backgroundColor = "var(--scroll-color)";
-  } else {
-    saw.style.backgroundColor = "var(--initial-color)";
-  }
+//   if (scrollProgress >= 0.6) {
+//     saw.style.backgroundColor = "var(--scroll-color)";
+//   } else {
+//     saw.style.backgroundColor = "var(--initial-color)";
+//   }
 
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const scrollPercent = window.scrollY / maxScroll;
-  const s = getComputedStyle(saw).getPropertyValue("--s");
-  const sValue = parseFloat(s);
-  const movement = scrollPercent * (35 * sValue);
-  saw.style.setProperty("--_i", `${movement}em`);
-}
+//   const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+//   const scrollPercent = window.scrollY / maxScroll;
+//   const s = getComputedStyle(saw).getPropertyValue("--s");
+//   const sValue = parseFloat(s);
+//   const movement = scrollPercent * (35 * sValue);
+//   saw.style.setProperty("--_i", `${movement}em`);
+// }
 
-window.addEventListener("scroll", handleSawScroll);
+// window.addEventListener("scroll", handleSawScroll);
 
-const centerBall = document.getElementById("centerBall");
-const balls = document.querySelectorAll(".ball:not(.ball-center)");
-let delayState = 0;
-let autoCycleInterval = null;
+// const centerBall = document.getElementById("centerBall");
+// const balls = document.querySelectorAll(".ball:not(.ball-center)");
+// let delayState = 0;
+// let autoCycleInterval = null;
 
-const delayPatterns = [
-  (index) => (index % 2 === 0 ? "0.1s" : "0s"),
-  (index) => `${(index + 1) * 0.1}s`,
-  (index) => `${Math.abs(index - 3) * 0.1}s`,
-  (index) => `${(8 - index) * 0.1}s`,
-  (index) => `${(index % 2 === 0 ? index : 4 - index) * 0.1}s`,
-];
+// const delayPatterns = [
+//   (index) => (index % 2 === 0 ? "0.1s" : "0s"),
+//   (index) => `${(index + 1) * 0.1}s`,
+//   (index) => `${Math.abs(index - 3) * 0.1}s`,
+//   (index) => `${(8 - index) * 0.1}s`,
+//   (index) => `${(index % 2 === 0 ? index : 4 - index) * 0.1}s`,
+// ];
 
-function applyDelayPattern() {
-  balls.forEach((ball, index) => {
-    ball.addEventListener("animationiteration", function updateDelay() {
-      ball.style.animationDelay = delayPatterns[delayState](index);
-      ball.removeEventListener("animationiteration", updateDelay);
-    });
-  });
-}
+// function applyDelayPattern() {
+//   balls.forEach((ball, index) => {
+//     ball.addEventListener("animationiteration", function updateDelay() {
+//       ball.style.animationDelay = delayPatterns[delayState](index);
+//       ball.removeEventListener("animationiteration", updateDelay);
+//     });
+//   });
+// }
 
-function toggleAutoCycle() {
-  if (autoCycleInterval) {
-    clearInterval(autoCycleInterval);
-    autoCycleInterval = null;
-  } else {
-    autoCycleInterval = setInterval(() => {
-      delayState = (delayState + 1) % delayPatterns.length;
-      applyDelayPattern();
-    }, 4000); // Change pattern every 4 seconds
-  }
-}
+// function toggleAutoCycle() {
+//   if (autoCycleInterval) {
+//     clearInterval(autoCycleInterval);
+//     autoCycleInterval = null;
+//   } else {
+//     autoCycleInterval = setInterval(() => {
+//       delayState = (delayState + 1) % delayPatterns.length;
+//       applyDelayPattern();
+//     }, 4000); // Change pattern every 4 seconds
+//   }
+// }
 
-centerBall.addEventListener("click", () => {
-  delayState = (delayState + 1) % delayPatterns.length;
-  applyDelayPattern();
-});
+// centerBall.addEventListener("click", () => {
+//   delayState = (delayState + 1) % delayPatterns.length;
+//   applyDelayPattern();
+// });
 
-toggleAutoCycle();
+// toggleAutoCycle();

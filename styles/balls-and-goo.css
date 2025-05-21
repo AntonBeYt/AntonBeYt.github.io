@@ -319,24 +319,33 @@
 
 .drip-wrapper {
   display: none;
-  position: absolute;
-  top: -44px;
+  position: fixed;
+  top: 0;
   right: 0;
-  width: 80px;
-  height: 100vh;
-  overflow: hidden;
+  left: 0;
+  bottom: 0;
+  z-index: 0;
   filter: url("#goo");
+  -webkit-filter: url("#goo");
+  pointer-events: none;
+}
+
+.drip-container {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .dripper {
   position: absolute;
   background: var(--menu-bg);
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px;
   border: 5px solid var(--menu-bg);
 }
 
@@ -348,9 +357,9 @@
 .drop {
   position: absolute;
   background: var(--menu-bg);
-  top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
+  left: 23%;
+  transform: translate(0, 0) scale(1);
   border-radius: 50%;
   border: 5px solid var(--menu-bg);
   width: 40px;
@@ -360,36 +369,28 @@
 
 @-webkit-keyframes drips {
   0% {
-    top: 50px;
-    width: 8px;
-    height: 8px;
+    transform: translate(0, 4px) scale(0.3);
   }
   10% {
-    top: 70px;
-    width: 8px;
-    height: 8px;
+    transform: translate(0, 5px) scale(0.4);
   }
   85% {
-    top: 75px;
-    width: 30px;
-    height: 30px;
+    transform: translate(0, 12px) scale(0.75);
   }
   99% {
-    top: 100%;
+    transform: translate(0, calc(100vh - 30px)) scale(0.75);
   }
   100% {
-    top: 101%;
-    width: 30px;
-    height: 30px;
+    transform: translate(0, calc(100vh - 20px)) scale(0.75);
   }
 }
 
 .drip-landing {
   position: absolute;
   background: var(--menu-bg);
-  left: 50%;
-  bottom: var(--footer-height);
-  transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
   width: 100%;
-  height: var(--footer-height);
+  height: calc(var(--footer-height) - 5px);
 }
