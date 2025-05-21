@@ -12,6 +12,10 @@
   transform: translate3d(0, 0, 0);
   transition: transform ease-out 200ms;
 }
+:root[data-style="gooey"] menu {
+  filter: url("#goo");
+  -webkit-filter: url("#goo");
+}
 
 :root[data-style="gooey"] .menu-item {
   display: flex;
@@ -106,9 +110,6 @@
   display: flex;
   justify-content: end;
   z-index: 5;
-  filter: url("#goo");
-  -webkit-filter: url("#goo");
-  isolation: isolate;
 }
 
 .menu-item:hover {
