@@ -397,11 +397,11 @@
 
 .wrapper {
   --size: 250px;
+  position: absolute;
   width: var(--size);
   height: var(--size);
-  /* position: absolute;
   top: 50%;
-  left: 50%; */
+  left: 50%;
   margin: calc(var(--size) / -2);
   background: white;
   filter: blur(10px) contrast(15);
