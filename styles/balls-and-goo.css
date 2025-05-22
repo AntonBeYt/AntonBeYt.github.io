@@ -156,27 +156,19 @@
 .dripper {
   position: absolute;
   background: var(--text-color);
-  top: 15px;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 10px;
   width: 50px;
   height: 50px;
+  transform: translate(-50%, 0);
   border-radius: 50%;
   border: 5px solid var(--text-color);
   filter: blur(8px);
-}
-
-.menu-open:checked + .dripper {
-  width: 80px;
-  height: 80px;
 }
 
 .drop {
   position: absolute;
   background: var(--text-color);
   top: 10px;
-  left: 50%;
-  transform: translateX(-50%);
   border-radius: 50%;
   border: 5px solid var(--text-color);
   width: 40px;
@@ -203,12 +195,48 @@
   }
 }
 
+.dripper:nth-child(1) {
+  left: 10%;
+}
+.dripper:nth-child(3) {
+  left: 30%;
+}
+.dripper:nth-child(5) {
+  left: 50%;
+}
+.dripper:nth-child(7) {
+  left: 70%;
+}
+.dripper:nth-child(9) {
+  left: 90%;
+}
+
+.drop:nth-child(2) {
+  left: 10%;
+  animation-delay: 0.5s;
+}
+.drop:nth-child(4) {
+  left: 30%;
+  animation-delay: 0.2s;
+}
+.drop:nth-child(6) {
+  left: 50%;
+  animation-delay: 0.3s;
+}
+.drop:nth-child(8) {
+  left: 70%;
+  animation-delay: 0.1s;
+}
+.drop:nth-child(10) {
+  left: 90%;
+}
+
 .drip-landing {
   position: absolute;
   background: var(--text-color);
   left: 0;
   bottom: -20px;
   width: 100%;
-  height: var(--footer-height);
+  height: 10%;
   filter: blur(8px);
 }
