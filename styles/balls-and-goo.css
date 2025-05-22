@@ -149,19 +149,21 @@
   width: 80px;
   height: 100%;
   overflow: hidden;
-  filter: url("#goo");
+  background: var(--background-color);
+  filter: contrast(25);
 }
 
 .dripper {
   position: absolute;
-  background: var(--yellow);
+  background: var(--text-color);
   top: 15px;
   left: 50%;
   transform: translateX(-50%);
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 5px solid var(--yellow);
+  border: 5px solid var(--text-color);
+  filter: blur(8px);
 }
 
 .menu-open:checked + .dripper {
@@ -171,15 +173,16 @@
 
 .drop {
   position: absolute;
-  background: var(--yellow);
+  background: var(--text-color);
   top: 10px;
   left: 50%;
   transform: translateX(-50%);
   border-radius: 50%;
-  border: 5px solid var(--yellow);
+  border: 5px solid var(--text-color);
   width: 40px;
   height: 40px;
   animation: drips 7s infinite;
+  filter: blur(8px);
 }
 
 @-webkit-keyframes drips {
@@ -210,10 +213,11 @@
 
 .drip-landing {
   position: absolute;
-  background: var(--yellow);
+  background: var(--text-color);
   left: 50%;
   bottom: -20px;
   transform: translateX(-50%);
   width: 100%;
   height: var(--footer-height);
+  filter: blur(8px);
 }
