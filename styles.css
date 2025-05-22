@@ -18,6 +18,7 @@
 
 :root {
   --footer-height: 2rem;
+  --effect-section-height: clamp(20rem, 50vh, 100vh);
 }
 
 html {
@@ -107,7 +108,7 @@ h1 {
 .effect-section {
   position: relative;
   width: 100vw;
-  height: clamp(20rem, 50vh, 100vh);
+  height: var(--effect-section-height);
 }
 
 .circle {
