@@ -3,8 +3,27 @@
 
 :root[data-style="gooey"] h1 {
   font-size: clamp(6rem, 15vw, 20rem);
-  font-weight: 600;
+  margin-top: 5rem;
+  font-weight: 700;
   animation: squishing 18s infinite linear;
+  background-image: linear-gradient(45deg, #12c2e9, #c471ed, #f64f59);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: squishing 18s infinite linear, gradient 8s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 :root[data-style="gooey"] .blob-container {
@@ -62,7 +81,7 @@
     transform: skewX(5deg);
   }
   50% {
-    transform: scale(0.7) skewX(-6deg);
+    transform: scale(0.8) skewX(-6deg);
   }
   100% {
     transform: skewX(5deg);
@@ -116,4 +135,85 @@
   50% {
     transform: translate(-25px, 75px) scale(0.5);
   }
+}
+
+:root[data-style="gooey"] .drip-wrapper {
+  display: block;
+}
+
+.drip-wrapper {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80px;
+  height: 100%;
+  overflow: hidden;
+  filter: url("#goo");
+}
+
+.dripper {
+  position: absolute;
+  background: var(--yellow);
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid var(--yellow);
+}
+
+.menu-open:checked + .dripper {
+  width: 80px;
+  height: 80px;
+}
+
+.drop {
+  position: absolute;
+  background: var(--yellow);
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  border: 5px solid var(--yellow);
+  width: 40px;
+  height: 40px;
+  animation: drips 7s infinite;
+}
+
+@-webkit-keyframes drips {
+  0% {
+    top: 50px;
+    width: 8px;
+    height: 8px;
+  }
+  10% {
+    top: 70px;
+    width: 8px;
+    height: 8px;
+  }
+  85% {
+    top: 75px;
+    width: 30px;
+    height: 30px;
+  }
+  99% {
+    top: 100%;
+  }
+  100% {
+    top: 101%;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.drip-landing {
+  position: absolute;
+  background: var(--yellow);
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+  width: 100%;
+  height: var(--footer-height);
 }

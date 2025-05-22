@@ -85,20 +85,6 @@ main {
   justify-content: center;
 }
 
-footer {
-  position: fixed;
-  height: var(--footer-height);
-  background-color: var(--menu-bg);
-  bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  z-index: 3;
-}
-
 .overlay {
   position: fixed;
   inset: 0;
@@ -116,6 +102,13 @@ h1 {
   position: relative;
   z-index: 0;
   margin: 0;
+}
+
+.effect-section {
+  position: relative;
+  width: 100vw;
+  height: clamp(20rem, 50vh, 100vh);
+  background-color: tomato;
 }
 
 .circle {
@@ -169,31 +162,16 @@ h1 {
   animation: rainbow 2s linear infinite;
 }
 
-.drawers {
-  width: 100%;
-}
-
-details::details-content {
-  max-height: 0;
-  transition: all 600ms, content-visibility 600ms allow-discrete;
-  overflow: hidden;
-}
-
-details[open]::details-content {
-  max-height: 500px;
-}
-
-summary {
-  list-style: none;
-  cursor: pointer;
-}
-
-summary::-webkit-details-marker {
-  display: none;
-}
-
-details {
-  transition: all 600ms ease-in-out;
-}
-details[open] {
+footer {
+  position: fixed;
+  height: var(--footer-height);
+  background-color: var(--menu-bg);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
 }
