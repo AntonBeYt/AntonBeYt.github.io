@@ -278,17 +278,45 @@ body {
   filter: blur(8px);
   transform: translate(0px, 0px);
   /* -webkit-animation: ani 2s infinite ease-in-out; */
-  animation: ani 2s infinite ease-in-out;
-  z-index: 3;
+  /* animation: northEast 2s infinite ease-in-out; */
   border-radius: 100%;
 }
 
-.disc:nth-child(2) {
-  /* background-color: red; */
-  /* -webkit-animation: ani2 2s infinite ease-in-out; */
+.north {
+  animation: north 2s infinite ease-in-out;
+  animation-delay: 0.1s;
+}
+.northEast {
+  animation: northEast 2s infinite ease-in-out;
+}
+.east {
+  animation: east 2s infinite ease-in-out;
+}
+.southEast {
+  animation: southEast 2s infinite ease-in-out;
+  animation-delay: 1.1s;
+}
+.south {
+  animation: south 2s infinite ease-in-out;
+  animation-delay: 1.1s;
+}
+.southWest {
+  animation: southWest 2s infinite ease-in-out;
+  animation-delay: 1.2s;
+}
+.west {
+  animation: west 2s infinite ease-in-out;
+}
+.northWest {
+  animation: northWest 2s infinite ease-in-out;
+}
+
+/* .disc:nth-child(2) {
+  background-color: red;
+  -webkit-animation: ani2 2s infinite ease-in-out;
   animation: ani2 2s infinite ease-in-out;
   transform: translate(0px, 0px);
-}
+} */
 
 /* @-webkit-keyframes ani {
   49% {
@@ -302,17 +330,48 @@ body {
   }
 } */
 
-@keyframes ani {
-  49% {
-  }
+@keyframes north {
   50% {
-    transform: translate(80px, 0px);
-  }
-  99% {
-  }
-  100% {
+    transform: translate(0px, -80px);
   }
 }
+
+@keyframes northEast {
+  50% {
+    transform: translate(60px, -60px) scale(0.7);
+  }
+}
+@keyframes east {
+  50% {
+    transform: translate(80px, 0px) scale(0.7);
+  }
+}
+@keyframes southEast {
+  50% {
+    transform: translate(25px, 80px) scale(0.5);
+  }
+}
+@keyframes south {
+  50% {
+    transform: translate(0px, 90px) scale(0.8);
+  }
+}
+@keyframes southWest {
+  50% {
+    transform: translate(-25px, 75px) scale(0.5);
+  }
+}
+@keyframes west {
+  50% {
+    transform: translate(-80px, 0px) scale(0.7);
+  }
+}
+@keyframes northWest {
+  50% {
+    transform: translate(-60px, -60px) scale(0.7);
+  }
+}
+
 /* @-webkit-keyframes ani2 {
   49% {
   }

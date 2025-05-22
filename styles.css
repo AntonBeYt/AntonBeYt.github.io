@@ -76,6 +76,15 @@ main {
   position: relative;
 }
 
+.hero {
+  min-height: 30vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 footer {
   position: fixed;
   height: var(--footer-height);
@@ -106,17 +115,7 @@ footer {
 h1 {
   position: relative;
   z-index: 0;
-}
-
-:root[data-style="brutal"] h1 {
-  font-size: clamp(2rem, 30vw, 20rem);
-  font-weight: 700;
-  text-transform: uppercase;
-}
-
-:root[data-style="gooey"] h1 {
-  font-size: clamp(6rem, 2vw + 0.75rem, 1.5rem);
-  font-weight: 600;
+  margin: 0;
 }
 
 .circle {
