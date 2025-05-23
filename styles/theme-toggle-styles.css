@@ -1,14 +1,15 @@
 :root {
   --purple: #6247aa;
   --yellow: #ffc107;
-  --bg: #009688;
+  /* --bg: #009688; */
   --open-distance: 105px;
   --menu-items: 6;
 }
 
 :root[data-style="gooey"] {
   --menu-filter: url("#goo");
-  --menu-bg: #ffc107;
+  --menu-bg: #1b998b;
+  /* --menu-bg: #ffc107; */
   --menu-color: #6247aa;
 }
 

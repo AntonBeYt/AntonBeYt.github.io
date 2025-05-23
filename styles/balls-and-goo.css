@@ -279,7 +279,7 @@
   width: 50%;
 }
 .seconds-hand {
-  background-color: tomato;
+  background-color: #f46036;
 }
 
 .minutes-circle {
@@ -294,7 +294,8 @@
   width: 30%;
 }
 .hours-hand {
-  background-color: #90be6d;
+  background-color: #2e294e;
+  /* background-color: #90be6d; */
 }
 
 .hand::before {
@@ -302,22 +303,33 @@
   position: absolute;
   bottom: 50%;
   left: 50%;
-  width: 2px;
+  width: 20%;
   height: var(--line-length);
   background-color: inherit;
   transform: translateX(-50%) rotate(135deg);
   transform-origin: bottom;
   opacity: 0.6;
+  border-radius: 15px 15px 0 0;
 }
 
 .seconds-hand::before {
-  --line-length: 50vw;
+  --line-length: 30vw;
 }
 
 .minutes-hand::before {
-  --line-length: 40vw;
+  --line-length: 25vw;
 }
 
 .hours-hand::before {
-  --line-length: 25vw;
+  --line-length: 20vw;
+}
+
+.hand-inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
 }

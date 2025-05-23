@@ -19,6 +19,19 @@ function updateAnalogClock() {
   document.querySelector(
     ".hours-circle"
   ).style.transform = `translate(-50%, -50%) rotate(${hoursDegrees}deg)`;
+
+  setTimeout(() => {
+    const secondDigit = document.querySelector(".seconds-hand-digit");
+    const minuteDigit = document.querySelector(".minutes-hand-digit");
+    const hourDigit = document.querySelector(".hours-hand-digit");
+
+    secondDigit.style.transform = `rotate(-${secondsDegrees}deg)`;
+    secondDigit.textContent = String(seconds).padStart(2, "0");
+    minuteDigit.style.transform = `rotate(-${minutesDegrees}deg)`;
+    minuteDigit.textContent = String(minutes).padStart(2, "0");
+    hourDigit.style.transform = `rotate(-${hoursDegrees}deg)`;
+    hourDigit.textContent = String(hours).padStart(2, "0");
+  }, 500);
 }
 
 setInterval(updateAnalogClock, 1000);
