@@ -117,6 +117,7 @@
                 name="style"
                 id="gooey"
                 value="gooey"
+                checked
               />
             </div>
             <div class="menu-item">
@@ -127,14 +128,13 @@
                 name="style"
                 id="brutal"
                 value="brutal"
-                checked
               />
             </div>
-            <div class="menu-item">
+            <!-- <div class="menu-item">
               soon...
-              <!-- <label for="paper">Paper</label>
-                            <input class="radio-btn" type="radio" name="style" id="paper" value="paper"> -->
-            </div>
+              <label for="paper">Paper</label>
+                            <input class="radio-btn" type="radio" name="style" id="paper" value="paper">
+            </div> -->
             <div class="spotlight-toggle-container">
               <label
                 for="spotlight-toggle"
@@ -185,70 +185,112 @@
           </div>
         </div>
       </section>
+      <div></div>
 
       <h1 class="bubble-grow">Hello World</h1>
 
       <section class="effect-section">
-        <div>
-          <div class="drip-wrapper">
-            <div class="dripper"></div>
-            <div class="drop"></div>
-            <div class="dripper"></div>
-            <div class="drop"></div>
-            <div class="dripper"></div>
-            <div class="drop"></div>
-            <div class="dripper"></div>
-            <div class="drop"></div>
-            <div class="dripper"></div>
-            <div class="drop"></div>
-            <div class="drip-landing"></div>
+        <div class="drip-wrapper">
+          <div class="dripper"></div>
+          <div class="drop"></div>
+          <div class="dripper"></div>
+          <div class="drop"></div>
+          <div class="dripper"></div>
+          <div class="drop"></div>
+          <div class="dripper"></div>
+          <div class="drop"></div>
+          <div class="dripper"></div>
+          <div class="drop"></div>
+          <div class="drip-landing"></div>
+        </div>
+
+        <div class="typewriter-wrapper">
+          <div class="typewriter">
+            <p>This is the information superhighway</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="clock-section">
+        <div class="clock">
+          <div class="analog">
+            <div class="analog-circle seconds-circle">
+              <div class="hand seconds-hand"></div>
+            </div>
+            <div class="analog-circle minutes-circle">
+              <div class="hand minutes-hand"></div>
+            </div>
+            <div class="analog-circle hours-circle">
+              <div class="hand hours-hand"></div>
+            </div>
+            <div class="center-circle"></div>
+          </div>
+          <div class="digital">
+            <div class="digital-time">
+              <div class="lcd-digit hours-1">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+              <div class="lcd-digit hours-2">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+              <div class="separator">:</div>
+              <div class="lcd-digit minutes-1">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+              <div class="lcd-digit minutes-2">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+              <div class="separator">:</div>
+              <div class="lcd-digit seconds-1">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+              <div class="lcd-digit seconds-2">
+                <div class="digit digit-top"></div>
+                <div class="digit digit-top-left"></div>
+                <div class="digit digit-top-right"></div>
+                <div class="digit digit-middle"></div>
+                <div class="digit digit-bottom-left"></div>
+                <div class="digit digit-bottom-right"></div>
+                <div class="digit digit-bottom"></div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <footer></footer>
-      <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
-        <defs>
-          <filter id="shadowed-goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              result="blur"
-              stdDeviation="10"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-              result="goo"
-            />
-            <feGaussianBlur in="goo" stdDeviation="3" result="shadow" />
-            <feColorMatrix
-              in="shadow"
-              mode="matrix"
-              values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 -0.2"
-              result="shadow"
-            />
-            <feOffset in="shadow" dx="1" dy="1" result="shadow" />
-            <feComposite in2="shadow" in="goo" result="goo" />
-            <feComposite in2="goo" in="SourceGraphic" result="mix" />
-          </filter>
-          <filter id="goo">
-            <feGaussianBlur
-              in="SourceGraphic"
-              result="blur"
-              stdDeviation="10"
-            />
-            <feColorMatrix
-              in="blur"
-              mode="matrix"
-              values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
-              result="goo"
-            />
-            <feComposite in2="goo" in="SourceGraphic" result="mix" />
-          </filter>
-        </defs>
-      </svg>
     </main>
     <script src="bells-whistles.js"></script>
+    <script src="clocks.js"></script>
   </body>
 </html>
