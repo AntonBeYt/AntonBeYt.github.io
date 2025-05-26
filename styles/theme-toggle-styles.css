@@ -8,8 +8,8 @@
 
 :root[data-style="gooey"] {
   --menu-filter: url("#goo");
-  --menu-bg: #1b998b;
-  /* --menu-bg: #ffc107; */
+  /* --menu-bg: #1b998b; */
+  --menu-bg: #ffc107;
   --menu-color: #6247aa;
 }
 

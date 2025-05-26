@@ -2,11 +2,11 @@ function updateAnalogClock() {
   const now = new Date();
   const seconds = now.getSeconds();
   const minutes = now.getMinutes();
-  const hours = now.getHours() % 12;
+  const hours = now.getHours();
 
   const secondsDegrees = (seconds / 60) * 360 + 45;
   const minutesDegrees = ((minutes + seconds / 60) / 60) * 360 + 45;
-  const hoursDegrees = ((hours + minutes / 60) / 12) * 360 + 45;
+  const hoursDegrees = ((hours + minutes / 60) / 24) * 360 + 45;
 
   document.querySelector(
     ".seconds-circle"

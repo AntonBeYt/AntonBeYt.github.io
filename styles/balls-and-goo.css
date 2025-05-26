@@ -269,32 +269,34 @@
 }
 .hand {
   transform: translate(100%, 100%) rotate(0deg);
-  height: 10%;
-  width: 10%;
+  height: 15%;
+  width: 15%;
   border-radius: 50%;
+  background-color: var(--menu-bg);
   /* animation: squishing 1s infinite ease-in-out; */
 }
 .seconds-circle {
-  height: 50%;
-  width: 50%;
+  height: 70%;
+  width: 70%;
 }
 .seconds-hand {
-  background-color: #f46036;
+  /* background-color: #f46036; */
 }
 
 .minutes-circle {
-  height: 40%;
-  width: 40%;
+  height: 50%;
+  width: 50%;
 }
 .minutes-hand {
-  background-color: #f9c74f;
+  /* background-color: #f9c74f; */
 }
 .hours-circle {
-  height: 30%;
-  width: 30%;
+  height: 35%;
+  width: 35%;
 }
 .hours-hand {
-  background-color: #2e294e;
+  /* background-color: var(--menu-bg); */
+  /* background-color: #2e294e; */
   /* background-color: #90be6d; */
 }
 
@@ -303,9 +305,9 @@
   position: absolute;
   bottom: 50%;
   left: 50%;
-  width: 20%;
+  width: 10%;
   height: var(--line-length);
-  background-color: inherit;
+  background-color: var(--text-color);
   transform: translateX(-50%) rotate(135deg);
   transform-origin: bottom;
   opacity: 0.6;
@@ -313,11 +315,11 @@
 }
 
 .seconds-hand::before {
-  --line-length: 30vw;
+  --line-length: 40vw;
 }
 
 .minutes-hand::before {
-  --line-length: 25vw;
+  --line-length: 30vw;
 }
 
 .hours-hand::before {
@@ -332,4 +334,6 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  color: var(--background-color);
+  background-color: var(--text-color);
 }
